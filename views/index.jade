@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    #container
+        button(class="btn btn-primary",id="create") Alta de Clientes
+
+    script.
+        $('#create').click(function () {
+            $.get("/create", function (data) {
+                $('#container').html(data)
+            })
+        })
