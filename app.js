@@ -20,13 +20,15 @@ db.once('open', function() {
 //-----------RUTAS
 var routes = require('./routes/index');
 var create = require('./routes/create');
+var login = require('./routes/login');
 
 app.use('/', routes);
 app.use('/create', create);
+app.use('/login', login);
 
-//--------RUTAS DE DB
+//--------RUTAS DE CONTROLADOR
 
-require('./controllers/user')(app);
+require('./controllers/loginController')(app);
 
 //-----------FIN RUTAS
 

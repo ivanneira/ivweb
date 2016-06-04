@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET create page. */
 router.get('/', function(req, res, next) {
-    res.render('create', { title: 'Alta' });
+    res.render('login', { title: 'Ingreso' });
 });
 
 module.exports = router;
