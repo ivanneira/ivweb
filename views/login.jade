@@ -2,19 +2,28 @@ extends layout
 
 block content
 
-    .col-xs-4.col-sm-4.col-md-4.col-lg-4
-    .col-xs-4.col-sm-4.col-md-4.col-lg-4.loginForm
+    .col-xs-1.col-sm-4.col-md-4.col-lg-5
+    .col-xs-10.col-sm-4.col-md-4.col-lg-2.loginForm
         br
-        p ingrese usuario y contraseña
+        p Ingrese DNI para acceder
         br
         input.form-control(
             id= "username"
-            placeholder= "Usuario"
+            placeholder= "DNI del titular"
         )
         br
-        input.form-control(
-            id= "password"
-            placeholder= "Contraseña"
-        )
+        button.btn.btn-primary(
+            id="loginbutton"
+        ) Entrar
         br
-    .col-xs-4.col-sm-4.col-md-4.col-lg-4
+        br
+    .col-xs-1.col-sm-4.col-md-4.col-lg-5
+
+    script.
+
+        $('#loginbutton').click(function(){
+
+            $.getJSON('/trylogin', function(data){
+                console.log(data)
+            })
+        })

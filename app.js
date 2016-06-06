@@ -17,7 +17,7 @@ db.once('open', function() {
 });
 //-----------FIN CONEXION A DB
 
-//-----------RUTAS
+//-----------RUTAS A VIEWS
 var routes = require('./routes/index');
 var create = require('./routes/create');
 var login = require('./routes/login');
@@ -26,12 +26,27 @@ app.use('/', routes);
 app.use('/create', create);
 app.use('/login', login);
 
-//--------RUTAS DE CONTROLADOR
+//-----------FIN RUTAS A VIEWS
 
-require('./controllers/loginController')(app);
+//---------------------MODELOS
 
-//-----------FIN RUTAS
+var UserModel = require('./models/userModel')(app,mongoose);
 
+//---------------------FIN MODELOS
+
+//---------------------CONTROLADORES
+
+var UserController = require('./controllers/userController');
+
+//---------------------FIN CONTROLADORES
+
+
+//--------------------RUTAS
+
+
+app.use('/getall',UserController);
+
+//--------------------FIN RUTAS
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
