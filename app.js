@@ -28,25 +28,6 @@ app.use('/login', login);
 
 //-----------FIN RUTAS A VIEWS
 
-//---------------------MODELOS
-
-var UserModel = require('./models/userModel')(app,mongoose);
-
-//---------------------FIN MODELOS
-
-//---------------------CONTROLADORES
-
-var UserController = require('./controllers/userController');
-
-//---------------------FIN CONTROLADORES
-
-
-//--------------------RUTAS
-
-
-app.use('/getall',UserController);
-
-//--------------------FIN RUTAS
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
